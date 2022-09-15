@@ -27,9 +27,9 @@ jobs:
     - name: Set up kubectl
       uses: matootie/dokube@v1.3.4
       with:
-          personalAccessToken: ${{ secrets.DIGITALOCEAN_TOKEN }}
-          clusterName: k8s-miles
           namespace: apps
+          personalAccessToken: ${{ secrets.DIGITAL_OCEAN_TOKEN }}
+          clusterName: k8s-miles
 
       # Run any kubectl commands you want!
     - name: Apply
