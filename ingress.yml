@@ -10,7 +10,7 @@ spec:
   - http:
       paths:
       - path: /ktni-actions
-        pathtype: Prefix
+        pathType: Prefix
         backend:
           service: 
             name: ktni-service
