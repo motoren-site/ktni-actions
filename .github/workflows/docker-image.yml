@@ -34,3 +34,9 @@ jobs:
       # Run any kubectl commands you want!
     - name: Apply
       run: kubectl apply -f $GITHUB_WORKSPACE/deployment.yml
+
+    - name: service
+      run: kubectl service -f $GITHUB_WORKSPACE/service.yml
+
+    - name: ingress
+      run: kubectl ingress -f $GITHUB_WORKSPACE/ingress.yml
