@@ -1,21 +1,25 @@
-apiVersion: apps/v1
 kind: Deployment
+apiVersion: apps/v1
 metadata:
-  name: ktni-deployment
-  labels:
-    app: ktni-actions
+  name: ktni-actions
+  namespace: apps
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
-      app: nginx
+      k8s-app: ktni-actions
   template:
     metadata:
       labels:
-        app: nginx
+        k8s-app: ktni-actions
     spec:
       containers:
       - name: ktni-actions
         image: registry.digitalocean.com/olsen/ktni-actions
-        ports:
-        - containerPort: 80
+        imagePullPolicy: Always
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 30
+      dnsPolicy: ClusterFirst
+  strategy:
+    type: RollingUpdate
+  minReadySeconds: 5

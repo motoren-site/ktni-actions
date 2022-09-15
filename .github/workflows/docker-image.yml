@@ -40,3 +40,12 @@ jobs:
 
     - name: ingress
       run: kubectl apply -f $GITHUB_WORKSPACE/ingress.yml
+
+    - name: Check status
+      run: kubectl rollout status deployment/go-app -n apps
+      
+    - name: Remove old containers
+      uses: ripplr-io/docr-image-remove@v1
+      with:
+        image_repository: registry.digitalocean.com/olsen/ktni-actions
+        buffer_size: 2
