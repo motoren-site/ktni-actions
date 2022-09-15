@@ -23,3 +23,14 @@ jobs:
 
     - name: Docker Push
       run: docker push registry.digitalocean.com/olsen/ktni-actions:$(echo $GITHUB_SHA | head -c7)
+
+    - name: Set up kubectl
+      uses: matootie/dokube@v1.3.4
+      with:
+          personalAccessToken: ${{ secrets.DIGITALOCEAN_TOKEN }}
+          clusterName: k8s-miles
+          namespace: apps
+
+      # Run any kubectl commands you want!
+    - name: Apply
+      run: kubectl apply -f $GITHUB_WORKSPACE/deployment.yml
