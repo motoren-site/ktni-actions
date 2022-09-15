@@ -4,14 +4,14 @@ metadata:
   name: ktni-ingress
   namespace: apps
   annotations:
-    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   rules:
-  - host: "app.motoren.site"
+  - host: app.motoren.site
   - http:
       paths:
-      - pathType: Prefix
-        path: /ktni-actions
+      - path: /ktni-actions
+        pathType: Prefix
         backend:
           service: 
             name: ktni-actions

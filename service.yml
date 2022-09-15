@@ -3,12 +3,11 @@ apiVersion: v1
 metadata:
   name: ktni-actions
   namespace: apps
-  k8s-app: ktni-actions
 spec:
+  selector:
+    app.kubernetes.io/name: ktni-actions
   ports:
   - protocol: TCP
     port: 80
     targetPort: 8080
-  selector: ktni-actions
   type: ClusterIP
-  ipFamilyPolicy: SingleStack
