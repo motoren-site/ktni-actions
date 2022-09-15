@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: ktni-deployment
   labels:
-    app: nginx
+    k8s-app: ktni-actions
 spec:
   replicas: 2
   selector:
