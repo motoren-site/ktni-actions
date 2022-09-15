@@ -9,7 +9,8 @@ spec:
   rules:
   - http:
       paths:
-      - path: app.motoren.site/ktni-actions
+      - path: /ktni-actions
+        pathtype: Prefix
         backend:
           service: 
             name: ktni-service
