@@ -12,7 +12,7 @@ spec:
     http:
       paths:
       - pathType: Prefix
-        path: "/ktni(/|$)(.*)"
+        path: "/ktni"
         backend:
           service: 
             name: ktni-actions
