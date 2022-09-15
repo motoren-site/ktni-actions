@@ -19,10 +19,10 @@ jobs:
         password: ${{ secrets.DIGITAL_OCEAN_TOKEN }}
 
     - name: Build latest
-      run: docker build -t registry.digitalocean.com/olsen/ktni-actions:$(echo $GITHUB_SHA | head -c7) .
+      run: docker build -t registry.digitalocean.com/olsen/ktni-actions .
 
     - name: Docker Push
-      run: docker push registry.digitalocean.com/olsen/ktni-actions:$(echo $GITHUB_SHA | head -c7)
+      run: docker push registry.digitalocean.com/olsen/ktni-actions
 
     - name: Set up kubectl
       uses: matootie/dokube@v1.3.4
