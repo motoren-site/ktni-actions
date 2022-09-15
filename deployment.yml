@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: ktni-actions
-        image: registry.digitalocean.com/olsen/ktni-actions:$(echo $GITHUB_SHA | head -c7)
+        image: registry.digitalocean.com/olsen/ktni-actions
         ports:
         - containerPort: 80
