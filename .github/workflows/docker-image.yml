@@ -20,3 +20,6 @@ jobs:
 
     - name: Build latest
       run: docker build -t registry.digitalocean.com/olsen/ktni-actions:$(echo $GITHUB_SHA | head -c7) .
+
+    - name: Docker Push
+      run: docker push registry.digitalocean.com/olsen/ktni-actions:$(echo $GITHUB_SHA | head -c7)
