@@ -9,10 +9,10 @@ metadata:
 spec:
   rules:
   - host: "app.motoren.site"
-  - http:
+    http:
       paths:
-      - path: /ktni-actions
-        pathType: Prefix
+      - pathType: Prefix
+        path: "/ktni(/|$)(.*)"
         backend:
           service: 
             name: ktni-actions
